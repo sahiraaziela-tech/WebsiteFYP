@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="kuih.css">
+    <script defer src="apps.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=gambarino@400&display=swap" rel="stylesheet">
+
+    <title>Kuih Tradisional</title>
+</head>
+  
+<body>
+    <header id="header">
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="navigation">
+            <a href="index.html">HALAMAN UTAMA</a>
+            <a href="index.html#pengenalan-etnik">PENGENALAN ETNIK</a> 
+            
+            <div class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown(event)">TEROKAI BUDAYA</a>
+                <ul class="dropdown-content">
+                    <li><a href="rumah.html">Rumah Tradisional</a></li>
+                    <li><a href="pakaian.html">Pakaian Tradisional</a></li>
+                    <li><a href="muzik.html">Alat Muzik Tradisional</a></li>
+                    <li><a href="kuih.html">Kuih Tradisional</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hidden">
+        <div class="container">
+            <h1>Kuih Tradisional</h1>
+
+            <section class="all-images">
+                <div class="image-text-box">
+                    <div class="image-text-content">
+                        
+                        <video class="side-media" controls>
+                            <source src="img/penyaram.mp4" type="video/mp4">
+                            Browser anda tidak menyokong video.
+                        </video>
+
+                        <div class="text-box">
+                            <h2>Kuih Penjaram</h2>
+                            <p>
+                            Kuih Penjaram juga dikenali sebagai kuih Pinyaram, Penyaram dan
+                            Cucoq Jawa merupakan sejenis kuih tradisional di Sabah, Kedah dan Brunei. 
+                            Ia juga popular dikalangan masyarakat Bajau Samah. Ia diperbuat
+                            dari tepung beras, tepung gandum, santan, gula lanun/tebu dan minyak. 
+                            Daun dan sari pandan juga digunakan untuk mendapatkan warna
+                            hijau dan menambah bau wangi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+</body>
+</html>

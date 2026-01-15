@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="pakaian.css">
+
+    <script defer src="apps.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=gambarino@400&display=swap" rel="stylesheet">
+
+    <title>Pakaian Tradisional</title>
+</head>
+ 
+<body>
+    <header id="header">
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="navigation">
+            <a href="index.html">HALAMAN UTAMA</a>
+            <a href="index.html#pengenalan-etnik">PENGENALAN ETNIK</a> 
+
+            <div class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown(event)">
+                    TEROKAI BUDAYA
+                </a>
+                <ul class="dropdown-content">
+                    <li><a href="rumah.html">Rumah Tradisional</a></li>
+                    <li><a href="pakaian.html">Pakaian Tradisional</a></li>
+                    <li><a href="muzik.html">Alat Muzik Tradisional</a></li>
+                    <li><a href="kuih.html">Kuih Tradisional</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <section class="hidden">
+        <div class="container">
+            <h1>Pakaian Tradisional</h1>
+
+            <section class="all-images">
+                
+                <div class="image-text-box">
+                    <div class="image-text-content">
+                        <img src="img/bajuL.jpg" alt="Pakaian Lelaki" class="image-box">
+                        <div class="text-box">
+                            <h2>Pakaian Lelaki</h2>
+                            <p>
+                                Baju Bajau Samah untuk lelaki dipanggil Badu dalam bahasa Bajau. Badu ini biasanya dipilih kain berwarna kuning keemasan. 
+                                Kaum lelaki Bajau juga mengenakan Suar atau seluar berwarna hitam.
+                                Perhiasan bagi pakaian lelaki Bajau ialah Tanjak untuk hiasan kepala,
+                                memakai tali pinggang dipanggil Ingkot Pangkat dan memakai Salempang yang disulam sebagai hiasan
+                                Kaum lelaki Bajau juga biasa menggunakan perhiasan yang dipanggil supu. 
+                                Supu ini adalah perhiasan yang digunakan untuk menyimpan sigup atau rokok daun.
+                            </p>
+
+                            <div class="ar-button-container">
+                                <a href="/WebsiteFYP/coding/bajulelaki/bajulelaki.html" class="ar-button">
+                                    AR Mode
+                                </a>
+                                <a href="javascript:void(0);" onclick="openModal('/WebsiteFYP/img/marker pakaian.png')" class="ar-button marker">
+                                    <i class="ar-marker"></i> Marker AR 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="image-text-box">
+                    <div class="image-text-content">
+                        <img src="img/bajuP.jpg" alt="Pakaian Perempuan" class="image-box"> 
+                        <div class="text-box">
+                            <h2>Pakaian Perempuan</h2>
+                            <p>
+                             Baju Bajau Samah untuk perempuan dikenali sebagai Badu Sipak, biasanya berwarna terang dan berkilat, 
+                             dan sering dipakai bersama Sarimpak hiasan kepala, Mandapun hiasan baju serta Olos Berangkit kain dan hiasan tambahan.
+                             Selain itu, terdapat juga tali pinggang seperti Ingkot Pangkat dan Salempang yang menjadi pelengkap.
+                             </p>
+
+                            <div class="ar-button-container">
+                                <a href="/WebsiteFYP/coding/bajuperempuan/bajuperempuan.html" class="ar-button">
+                                    AR Mode
+                                </a>
+                                <a href="javascript:void(0);" onclick="openModal('/WebsiteFYP/img/marker pakaian.png')" class="ar-button marker">
+                                    <i class="ar-marker"></i> Marker AR 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+        </div> 
+    </section>
+
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+</body>
+</html>

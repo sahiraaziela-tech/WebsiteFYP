@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MindAR Camera Test</title>
+
+  <script src="/WebsiteFYP/libs/mindar/mindar-image-three.prod.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+  </style>
+</head>
+
+<body>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+
+  if (!window.MINDAR) {
+    alert("❌ MindAR not loaded");
+    return;
+  }
+
+  const mindarThree = new window.MINDAR.IMAGE.MindARThree({
+    container: document.body,
+    imageTargetSrc: "/WebsiteFYP/assets/targets/gong.mind",
+  });
+
+  try {
+    await mindarThree.start();
+    alert("✅ Camera should be ON now");
+  } catch (e) {
+    alert("❌ ERROR: " + e);
+    console.error(e);
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+/* ===========================
+    RESET ASAS
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+
+/* ===========================
+    HEADER & NAVIGATION FIXED
+=========================== */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+}
+
+/* Hamburger (Sembunyi di Desktop) */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    color: #fff; /* Pastikan putih supaya nampak */
+    cursor: pointer;
+    margin-right: 0;
+    z-index: 102;
+}
+
+/* Navigation */
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-shadow: 2px 2px 4px rgba(222, 218, 218, 0.9);
+}
+
+.navigation > a, 
+.dropdown > a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 4px rgba(222, 218, 218, 0.9);
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown Logic */
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-image: linear-gradient(to top, #000000, #00000000); 
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 999;
+    padding: 0;
+    list-style-type: none; 
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #ffffff00;
+}
+
+/* Show Dropdown on Desktop Hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Hover Effect */
+.navigation a:hover,
+.dropdown > a:hover {
+    color: #c19459;
+    text-shadow: 0 0 8px rgba(255, 200, 120, 0.7);
+}
+
+
+
+/* ===========================
+      PARALLAX & CONTENT CSS
+      (Kekalkan gaya asal anda)
+=========================== */
+
+.parallax {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.parallax::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+#myBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+#intro {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 3vw;
+    font-weight: lighter;
+    color: #b8884a;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    padding-left: 55px;
+    z-index: 3;
+}
+
+#text {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 9vw;
+    line-height: 1.1;
+    font-weight: normal;
+    font-family: 'Aktura', serif;
+    z-index: 2;
+    padding-bottom: 10%;
+    color: #c19459;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    padding-left: 50px;
+}
+
+.awan {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 2; 
+    transition: transform 0.3s ease-out; 
+}
+
+#awan-kanan { right: 0; top: 0; }
+
+/* ALL IMAGES SECTION */
+.all-images {
+    position: relative;
+    min-height: 100vh; /* Tukar ke min-height supaya tak putus */
+    background-image: url('img/BG2 (2).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.all-images::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(180, 171, 171, 0.4); 
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2; 
+    text-align: center;
+    color: #fff;
+    padding: 40px;
+    max-width: 1200px;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1.3em;
+    color: #fff3f3;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    text-align: justify; 
+}
+
+.explore-button {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    background-color: transparent;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 1.3em;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.explore-button:hover {
+    color: #e6894b;
+    border-color: #e6894b;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* ===========================
+    RESPONSIVE (MOBILE MENU)
+    Logic dari rumah.css
+=========================== */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 5% !important;
+        justify-content: space-between !important;
+        align-items: center;
+    }
+
+    /* Tunjukkan Hamburger */
+    .hamburger {
+        display: block;
+        margin-left: auto; /* Tolak ke kanan */
+    }
+
+    /* Menu Slider */
+    .navigation {
+        position: absolute;
+        top: 100%;
+        right: -100%; /* Sembunyi di kanan */
+        width: 100%;
+        height: auto;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0;
+        padding: 20px 0;
+        transition: 0.4s ease; /* Animasi gelungsur */
+        box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+    }
+
+    /* Bila Active (Hamburger ditekan) */
+    .navigation.active {
+        right: 0; /* Masuk ke skrin */
+    }
+
+    .navigation a, 
+    .dropdown > a {
+        font-size: 1.2em !important;
+        padding: 15px 20px !important;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        display: block;
+    }
+
+    /* Dropdown Mobile */
+    .dropdown {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown-content {
+        position: relative;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+        display: none; /* Sembunyi asalnya */
+    }
+
+    /* .dropdown:hover .dropdown-content { display: block; } <-- Buang ini utk mobile jika guna klik */
+}

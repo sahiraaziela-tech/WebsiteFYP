@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="muzik.css">
+  
+    <script defer src="apps.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=gambarino@400&display=swap" rel="stylesheet">
+
+    <title>Muzik Tradisional</title>
+</head>
+  
+<body>
+    <header id="header">
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="navigation">
+            <a href="index.html">HALAMAN UTAMA</a>
+            <a href="index.html#pengenalan-etnik">PENGENALAN ETNIK</a> 
+            <div class="dropdown">
+                <a href="#">TEROKAI BUDAYA</a>
+                <ul class="dropdown-content">
+                    <li><a href="rumah.html">Rumah Tradisional</a></li>
+                    <li><a href="pakaian.html">Pakaian Tradisional</a></li>
+                    <li><a href="muzik.html">Alat Muzik Tradisional</a></li>
+                    <li><a href="kuih.html">Kuih Tradisional</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hidden">
+        <div class="container">
+            <h1>Alat Muzik Tradisional</h1>
+
+            <section class="all-images">
+                <div class="image-text-box">
+                    <div class="image-text-content">
+                        <img src="img/gong.jpg" alt="gong" class="image-box">
+                        <div class="text-box">
+                            <h2>Gong</h2>
+                            <p>
+                                Gong ini diperbuat daripada bahan yang keras seperti besi dan juga tembaga. 
+                                Besi tersebut akan diketuk menggunakan tukul khas untuk menghasilkan bentuk 
+                                manakala tembaga pula akan dipanaskan dan dicairkan kemudian akan dimasukkan ke dalam bekas atau acuan gong
+                                dan dibiarkan ianya mengeras atau membeku. Gong digunakan ketika menyambut majlis tertentu 
+                                seperti majlis keramaian, perayaan dan juga majlis-majlis rasmi.
+                            </p>
+
+                            <div class="ar-button-container">
+                                <a href="/WebsiteFYP/coding/gong/gong.html" class="ar-button">
+                                    AR Mode
+                                </a>
+                                <a href="javascript:void(0);" onclick="openModal('/WebsiteFYP/img/marker gong.jpg')" class="ar-button marker">
+                                    <i class="ar-marker"></i> Marker AR  
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="all-images">
+                <div class="image-text-box">
+                    <div class="image-text-content">
+                        <img src="img/gendang.jpg" alt="gendang" class="image-box">
+                        <div class="text-box">
+                            <h2>Gendang</h2>
+                            <p>
+                                Gandang merupakan gendang dua muka, badan utama gendang ini diperbuat daripada kayu atau kulit pokok, 
+                                manakala permukaannya diperbuat daripada kulit lembu, kambing atau rusa.
+                                Ianya digunakan untuk muzik iringan bersama dengan alat tradisional yang lain seperti Kulintangan.
+                            </p>
+
+                            <div class="ar-button-container">
+                                <a href="/WebsiteFYP/coding/gendang/gendang.html" class="ar-button">
+                                    AR Mode
+                                </a>
+                                <a href="javascript:void(0);" onclick="openModal('/WebsiteFYP/img/MarkerGendang.png')" class="ar-button marker">
+                                    <i class="ar-marker"></i> Marker AR 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="all-images">
+                <div class="image-text-box">
+                    <div class="image-text-content">
+                        <img src="img/kulintangan.jpg" alt="kulintangan" class="image-box">
+                        <div class="text-box">
+                            <h2>Kulintangan</h2>
+                            <p>
+                                Kulintangan dimainkan dengan menggunakan dua pemukul kayu kecil, yang mana setiap gong menghasilkan alunan muzik yang berlainan. 
+                                Gabungan muzik ini terdiri daripada 9 buah gong kecil. Seterusnya, Kulintangan akan dimainkan pada majlis keramaian 
+                                seperti majlis perkahwinan yang mana kulintangan dimainkan bersama dengan alat muzik yang lain 
+                                dan bunyi atau muzik yang dihasilkan yang dikenali sebagai muzik bertitik.
+                            </p>
+
+                            <div class="ar-button-container">
+                                <a href="/WebsiteFYP/coding/kulintangan/kulintangan.html" class="ar-button">
+                                    AR Mode
+                                </a>
+                                <a href="javascript:void(0);" onclick="openModal('/WebsiteFYP/img/marker kulintangan.jpg')" class="ar-button marker">
+                                    <i class="ar-marker"></i> Marker AR 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+ 
+</body>
+</html>

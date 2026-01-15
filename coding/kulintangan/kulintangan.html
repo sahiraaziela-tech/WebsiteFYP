@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alat Kulintangan</title>
+
+  <!-- MindAR -->
+  <script src="/WebsiteFYP/libs/mindar/mindar-image-three.prod.js"></script>
+
+  <!-- Main JS -->
+  <script type="module" src="/WebsiteFYP/coding/kulintangan/kulintangan.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    #ar-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    /* ===== AR UI OVERLAY ===== */
+    .ar-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Top title */
+    .top-ui {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .app-title {
+      color: white;
+      font-size: 18px;
+      background: rgba(191, 167, 143, 0.85);
+      padding: 8px 18px;
+      border-radius: 20px;
+    }
+
+       @keyframes scanPulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+
+    /* Bottom instruction */
+    .bottom-ui {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .bottom-ui p {
+      color: white;
+      font-size: 15px;
+      background: rgba(191, 167, 143, 0.85);
+      padding: 10px;
+      margin: 0 30px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- AR CAMERA CONTAINER -->
+  <div id="ar-container"></div>
+
+  <!-- UI OVERLAY -->
+  <div class="ar-overlay">
+
+    <div class="top-ui">
+      <span class="app-title">KULINTANGAN AR</span>
+    </div>
+
+    <div class="scan-area" id="scan-area"></div>
+
+    <div class="bottom-ui">
+      <p id="ar-status">Halakan Marker Kulintangan ke Kamera</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

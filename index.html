@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>BUDAYA BAJAU SAMAH</title>
+</head>
+<body>
+
+    <header id="header">
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="navigation">
+            <a href="index.html">HALAMAN UTAMA</a> 
+            <a href="#pengenalan-etnik">PENGENALAN ETNIK</a> 
+            
+            <div class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown(event)">TEROKAI BUDAYA</a>
+                <ul class="dropdown-content">
+                    <li><a href="rumah.html">Rumah Tradisional</a></li>
+                    <li><a href="pakaian.html">Pakaian Tradisional</a></li>
+                    <li><a href="muzik.html">Alat Muzik Tradisional</a></li>
+                    <li><a href="kuih.html">Kuih Tradisional</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="parallax">
+        <span id="circle"></span>
+        <img class="awan" src="img/6.svg" id="awan-kanan">
+        <img class="awan" src="img/5.svg" id="awan-kiri">
+        
+        <h2 id="text">BUDAYA<br>BAJAU SAMAH<br>WEB AR</h2>
+        <img src="img/BGhome.jpg" alt="Background Bajau Samah" id="myBackground">
+    </section>
+
+    <section class="all-images" id="pengenalan-etnik">
+      <div class="overlay-container"></div>
+    
+      <div class="content-wrapper">
+        <div class="text-center">
+    <h1>PENGENALAN ETNIK</h1>
+    
+            <p class="subtitle" style="max-width: 1100px; margin: 0 auto 15px;">
+                Bajau Samah merupakan salah satu etnik utama di Sabah. Majoriti penduduk Bajau Samah tinggal di kawasan Pantai Barat Sabah, khususnya di daerah Kota Belud, Kudat, Tuaran, Kota Kinabalu dan Papar.
+            </p>
+
+            <p class="subtitle" style="max-width: 1100px; margin: 0 auto 15px;">
+                Mereka mahir dalam bidang pertanian seperti menanam padi serta memelihara haiwan ternakan. Mereka juga mahir mengendalikan kuda sehingga digelar Koboi Timur. Kemahiran ini lazimnya dipamerkan semasa majlis-majlis kebudayaan dengan mengenakan pakaian tradisi sambil mempamerkan bakat menunggang mereka. 
+            </p>
+
+            <p class="subtitle" style="max-width: 1100px; margin: 0 auto 15px;">
+                Secara tradisi kuda berperanan sebagai medium pengangkutan, namun kini ia menjadi ikon budaya bagi etnik Bajau Samah. Hari ini, kemahiran menunggang kuda menjadi acara utama semasa majlis perkahwinan dan ketika menyambut tetamu kenamaan. 
+            </p>
+
+            <p class="subtitle" style="max-width: 1100px; margin: 0 auto 40px;">
+                Etnik Bajau Samah juga terkenal dalam senikraf dan cukup mahir dalam seni pembuatan parang, menganyam bakul serta sulaman. Hasil tenunan mereka sering digunakan sebagai perhiasan kepala kaum lelaki podong atau tanjak. Kaum wanita pula memakai perhiasan kepala berjuntai yang dipanggil sarempak yang biasanya diperbuat daripada sepuhan perak.
+            </p>
+        </div>
+    
+        <div class="button-container">
+          <a href="#header" class="explore-button">Pergi Ke Terokai Budaya Untuk Pengalaman AR</a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+        // Script Parallax Circle (Kekal Sama)
+        window.addEventListener("scroll", function() {
+          const circle = document.getElementById("circle");
+          const scrollTop = window.scrollY;
+          const docHeight = document.body.scrollHeight - window.innerHeight;
+          const halfPoint = docHeight / 2;
+        
+          if (scrollTop < halfPoint / 2) {
+            const scale = 1 + (scrollTop / (halfPoint / 2)) * 0.2; 
+            circle.style.transform = `translate(-50%, -50%) scale(${scale})`;
+          } else {
+            circle.style.transform = `translate(-50%, -50%) scale(1.2)`;
+          }
+        });
+    </script>
+</body>
+</html>
