@@ -264,7 +264,7 @@ header {
     padding: 15px 5%; /* Jarak tepi header */
     justify-content: space-between; /* Pisahkan Logo & Hamburger */
     align-items: center;
-    background: rgba(0, 0, 0, 0.8); /* Gelapkan sikit background header */
+    
   }
 
   .hamburger {
