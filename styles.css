@@ -1,5 +1,5 @@
 /* ===========================
-   1. RESET & GLOBAL
+    RESET ASAS
 =========================== */
 * {
     margin: 0;
@@ -8,14 +8,19 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* PENTING: Halang scroll ke tepi */
+html {
     scroll-behavior: smooth;
+    overflow-x: hidden; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
 }
 
 /* ===========================
-   2. HEADER & NAVIGATION
+    HEADER & NAVIGATION FIXED
 =========================== */
 header {
     position: absolute;
@@ -23,315 +28,299 @@ header {
     left: 0;
     width: 100%;
     padding: 20px 5%;
-    z-index: 1000; /* Pastikan header sentiasa di atas */
+    z-index: 100;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
 }
 
-/* Logo atau Brand (Optional - Jika ada) */
-.logo {
-    margin-right: auto; 
-    color: #fff;
-    font-weight: bold;
+/* Hamburger (Sembunyi di Desktop) */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    color: #fff; /* Pastikan putih supaya nampak */
+    cursor: pointer;
+    margin-right: 0;
+    z-index: 102;
 }
 
-/* Desktop Navigation */
+/* Navigation */
 .navigation {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
+    text-shadow: 2px 2px 4px rgba(222, 218, 218, 0.9);
 }
 
-.navigation a, 
+.navigation > a, 
 .dropdown > a {
     text-decoration: none;
     color: #ffffff;
-    font-weight: 600;
-    font-size: 1.1em;
-    padding: 8px 16px;
+    padding: 10px 22px;
     border-radius: 20px;
-    transition: 0.3s;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: 700;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 4px rgba(222, 218, 218, 0.9);
+    display: flex;
+    align-items: center;
 }
 
-.navigation a:hover,
-.dropdown > a:hover {
-    color: #e6894b;
-    background: rgba(255,255,255,0.1);
-}
-
-/* Dropdown Menu (Desktop) */
+/* Dropdown Logic */
 .dropdown {
     position: relative;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .dropdown-content {
     display: none; 
     position: absolute;
-    top: 100%;
+    background-image: linear-gradient(to top, #000000, #00000000); 
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 999;
+    padding: 0;
+    list-style-type: none; 
+    top: 100%; 
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.9);
-    min-width: 200px;
-    border-radius: 8px;
-    padding: 10px 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    list-style: none;
 }
 
-.dropdown-content li a {
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
     display: block;
-    padding: 10px 20px;
-    font-size: 0.9em;
-    white-space: nowrap;
+    text-align: center;
 }
 
+.dropdown-content a:hover {
+    background-color: #ffffff00;
+}
+
+/* Show Dropdown on Desktop Hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Hamburger Icon (Hidden on Desktop) */
-.hamburger {
-    display: none;
-    font-size: 1.8rem;
-    color: #fff;
-    cursor: pointer;
-    z-index: 1002; /* Mesti lebih tinggi dari menu mobile */
+/* Hover Effect */
+.navigation a:hover,
+.dropdown > a:hover {
+    color: #c19459;
+    text-shadow: 0 0 8px rgba(255, 200, 120, 0.7);
 }
 
+
+
 /* ===========================
-   3. PARALLAX SECTION (HOME)
+      PARALLAX & CONTENT CSS
+      (Kekalkan gaya asal anda)
 =========================== */
+
 .parallax {
     position: relative;
-    width: 100%;
-    height: 100vh; /* Penuhkan satu skrin sahaja */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    height: 120vh;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
-/* Background Image */
+.parallax::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
 #myBackground {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Pastikan gambar cantik memenuhi ruang */
-    object-position: center;
     z-index: -1;
+    object-fit: cover;
+    pointer-events: none;
 }
 
-/* Lapisan Gelap supaya teks nampak */
-.parallax::after {
-    content: "";
+#intro {
     position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
+    top: 20%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 3vw;
+    font-weight: lighter;
+    color: #b8884a;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    padding-left: 55px;
+    z-index: 3;
 }
 
-/* Teks Utama */
 #text {
-    position: relative;
+    position: absolute;
+    top: 60%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 9vw;
+    line-height: 1.1;
+    font-weight: normal;
+    font-family: 'Aktura', serif;
     z-index: 2;
-    font-family: 'Aktura', serif; /* Pastikan font ini wujud/diload */
-    font-size: 6vw; /* Saiz ikut lebar skrin */
-    color: #e6894b;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-    text-align: center;
-    line-height: 1.2;
-    margin-top: -50px; /* Naikkan sikit ke tengah */
+    padding-bottom: 10%;
+    color: #c19459;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    padding-left: 50px;
 }
 
-/* Awan */
 .awan {
     position: absolute;
+    top: 0;
     width: 100%;
-    max-width: 600px;
     pointer-events: none;
-    z-index: 2;
+    z-index: 2; 
+    transition: transform 0.3s ease-out; 
 }
-#awan-kanan { top: 0; right: 0; }
-#awan-kiri { top: 0; left: 0; }
 
+#awan-kanan { right: 0; top: 0; }
 
-/* ===========================
-   4. CONTENT SECTION (INFO)
-=========================== */
+/* ALL IMAGES SECTION */
 .all-images {
     position: relative;
-    padding: 80px 20px;
-    background-image: url('img/BG2 (2).jpg'); /* Pastikan path betul */
+    min-height: 100vh; /* Tukar ke min-height supaya tak putus */
+    background-image: url('img/BG2 (2).jpg');
     background-size: cover;
-    background-attachment: fixed; /* Parallax effect simple */
-    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding: 50px 0;
 }
 
-/* Overlay gelap untuk content */
 .all-images::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(180, 171, 171, 0.4); 
+    backdrop-filter: blur(1px);
+    z-index: 1;
 }
 
 .content-wrapper {
     position: relative;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 40px;
-    border-radius: 15px;
-    max-width: 900px;
-    width: 100%;
-    color: #fff;
+    z-index: 2; 
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* Style Teks Dalam Content */
-.content-wrapper h1 {
-    font-family: 'Aktura', serif;
-    font-size: 3em;
-    color: #c19459;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,1);
+    color: #fff;
+    padding: 40px;
+    max-width: 1200px;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .subtitle {
-    font-size: 1.1em;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    text-align: justify;
-    color: #f0f0f0;
-}
-
-/* Button Style */
-.button-container {
-    margin-top: 40px;
+    font-size: 1.3em;
+    color: #fff3f3;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    text-align: justify; 
 }
 
 .explore-button {
-    display: inline-block;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    background-color: transparent;
     padding: 12px 30px;
-    border: 2px solid #c19459;
-    color: #c19459;
     text-decoration: none;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: 0.3s;
+    font-size: 1.3em;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .explore-button:hover {
-    background: #c19459;
-    color: #000;
+    color: #e6894b;
+    border-color: #e6894b;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-
 /* ===========================
-   5. MOBILE RESPONSIVE FIX
-   (Bahagian ini yang membaiki masalah anda)
+/* ===========================
+   FIX MOBILE SAHAJA (Ganti bahagian bawah CSS anda dengan ini)
 =========================== */
 @media (max-width: 768px) {
-    
-    /* HEADER: Susun semula hamburger */
+
+    /* 1. FIX NAVIGASI (Supaya tidak terheret ke tepi) */
     header {
-        padding: 15px 20px;
-        justify-content: space-between; /* Logo kiri (jika ada), Hamburger kanan */
+        padding: 15px 5%;
+        justify-content: space-between; /* Pastikan logo/menu jarak */
+        width: 100%;
     }
 
     .hamburger {
-        display: block;
-        position: relative;
-        margin-left: auto; /* Pastikan ke kanan sekali */
+        display: block; /* Tunjuk hamburger */
+        z-index: 1002;
     }
 
-    /* NAVIGASI: Guna Fixed Position (Full Screen Overlay) */
     .navigation {
-        position: fixed; /* KUNCI: Supaya tidak tolak body ke tepi */
+        position: fixed; /* Guna FIXED supaya dia tak tolak page ke tepi */
         top: 0;
         right: -100%; /* Sembunyi di luar skrin */
         width: 100%; /* Penuhkan lebar */
         height: 100vh; /* Penuhkan tinggi */
-        background: rgba(0, 0, 0, 0.95); /* Gelap penuh */
-        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.95); /* Gelap */
         flex-direction: column;
-        justify-content: center; /* Menu duduk tengah skrin */
+        justify-content: center;
         align-items: center;
-        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1001; /* Bawah sikit dari hamburger */
+        transition: 0.4s ease;
+        z-index: 1001; /* Duduk bawah hamburger tapi atas content */
     }
 
     .navigation.active {
-        right: 0; /* Masuk penuh */
+        right: 0; /* Masuk ke dalam */
     }
 
-    .navigation a, 
-    .dropdown > a {
-        font-size: 1.5rem; /* Besar sikit untuk jari */
-        padding: 15px;
-        width: 100%;
-        text-align: center;
-        border-bottom: none;
-    }
-
-    /* Dropdown Mobile */
-    .dropdown-content {
-        position: relative;
-        background: transparent;
-        box-shadow: none;
-        text-align: center;
-        padding-top: 0;
-    }
-    .dropdown-content li a {
-        font-size: 1.1rem;
-        color: #aaa;
-    }
-
-    /* PARALLAX FIX (Supaya tak memanjang) */
+    /* 2. FIX BACKGROUND & PARALLAX (Supaya ikut saiz skrin/teks) */
     .parallax {
-        height: 100vh; /* KUNCI: Ikut tinggi skrin telefon */
-        min-height: 500px; /* Elak jadi terlalu pendek */
+        /* Tukar dari 120vh ke 100vh supaya tak terlalu panjang ke bawah */
+        height: 100vh; 
+        min-height: 100vh; 
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #myBackground {
+        /* Pastikan gambar background sentiasa cover skrin cantik */
+        height: 100%;
+        width: 100%;
+        object-fit: cover; 
+        object-position: center;
     }
 
     #text {
-        font-size: 12vw; /* Besar dan jelas */
+        font-size: 12vw; /* Saiz teks ikut lebar skrin */
         width: 90%;
+        left: 5%; /* Centerkan teks */
         padding: 0;
-        margin-top: 0; /* Reset */
+        margin: 0;
+        text-align: center; /* Teks tengah */
     }
-
-    .awan {
-        max-width: 150px; /* Kecilkan awan */
-    }
-
-    /* CONTENT FIX */
-    .content-wrapper {
-        padding: 25px 20px;
-        width: 95%;
-    }
-
-    .content-wrapper h1 {
-        font-size: 2em; /* Kecilkan tajuk */
-    }
-
-    .subtitle {
-        font-size: 0.95em; /* Teks mudah baca */
-        text-align: justify; /* Kemas kiri kanan */
-    }
-
-    .explore-button {
-        width: 100%; /* Button penuh lebar */
-        text-align: center;
+    
+    /* Reset style pelik yang mungkin kacau layout */
+    body section#pengenalan-etnik {
+        width: 100%;
+        overflow: hidden;
     }
 }
