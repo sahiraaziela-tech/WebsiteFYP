@@ -276,7 +276,6 @@ header {
     font-size: 1.8rem;
     cursor: pointer;
     color: #fff;
-    z-index: 1002;
   }
 
   /* 2. NAVIGATION DRAWER (Gaya Slide-in) */
@@ -296,7 +295,6 @@ header {
     
     transition: 0.4s ease; /* Animasi lembut */
     box-shadow: 0 10px 10px rgba(0,0,0,0.5); /* Bayang di bawah menu */
-    z-index: 1000;
   }
 
   /* Bila hamburger ditekan, kelas .active ditambah oleh JS */
@@ -348,7 +346,7 @@ header {
     margin: 0 auto;
     left: 0;
     right: 0;
-    text-align: center;
+    text-align: left;
   }
 
   .content-wrapper {
