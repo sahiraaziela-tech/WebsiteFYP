@@ -302,52 +302,33 @@ header {
   }
 
   /* 3. LINKS & DROPDOWN STYLE */
-  .navigation a,
+    .navigation a,
   .dropdown > a {
-    font-size: 1.2em; /* Saiz tulisan besar sikit */
-    padding: 15px 20px; /* Ruang untuk jari tekan */
-    width: 100%; /* Penuh lebar */
-    text-align: center; /* Tulisan tengah */
-    border-bottom: 1px solid rgba(255,255,255,0.1); /* Garis pemisah halus */
+    font-size: 1.2em;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     display: block;
-    color: #fff;
-  }
-  
-  /* Buang background hover desktop */
-  .navigation a:hover,
-  .dropdown > a:hover {
-    background: rgba(255,255,255,0.1); 
-    color: #c19459;
   }
 
-  /* Dropdown Mobile */
   .dropdown {
     width: 100%;
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .dropdown-content {
-    position: relative; /* Ikut flow menu, bukan terapung */
+    position: relative;
     width: 100%;
     top: 0;
     left: 0;
     transform: none;
-    background: rgba(255,255,255,0.05); /* Warna lain sikit untuk sub-menu */
+    background: rgba(255,255,255,0.05);
     box-shadow: none;
-    display: none; /* Sembunyi asalnya */
-    padding: 0;
+    display: none;
   }
 
-  .dropdown-content li a {
-    font-size: 1em;
-    padding: 12px 0;
-    border-bottom: none;
-    color: #ddd;
-  }
-
-  /* Tunjuk dropdown bila disentuh/hover (Optional: lebih baik guna JS click) */
   .dropdown:hover .dropdown-content {
     display: block;
   }
