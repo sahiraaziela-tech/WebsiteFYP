@@ -315,16 +315,15 @@ header {
   }
 
   /* STYLE LINK MENU */
-  .navigation a,
-  .dropdown > a {
-    font-size: 1.3em;
-    padding: 15px;
-    width: 80%; /* Tak perlu lebar sangat */
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    color: #fff;
-    display: block;
-  }
+  .navigation a, 
+    .dropdown > a {
+        font-size: 1.2em !important;
+        padding: 15px 20px !important;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        display: block;
+    }
 
   /* DROPDOWN FIX */
   .dropdown {
@@ -334,10 +333,14 @@ header {
     align-items: center;
   }
 
-  .dropdown-content {
+ .dropdown-content {
     position: relative;
     width: 100%;
-    background: rgba(255, 255, 255, 0.05);
+    top: 0;
+    left: 0;
+    transform: none;
+    background: rgba(255,255,255,0.05);
+    box-shadow: none;
     display: none;
   }
   
