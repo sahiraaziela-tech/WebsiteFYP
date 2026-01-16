@@ -261,96 +261,84 @@ header {
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-/* ================= MOBILE MENU (DRAWER STYLE) ================= */
+/* ===========================
+   MOBILE RESPONSIVE (FIXED VERSION)
+   Copy & Paste kod ini ganti bahagian bawah CSS anda
+=========================== */
 @media (max-width: 768px) {
 
-  /* 1. HEADER (Wajib 'relative' supaya menu melekat di bawahnya) */
+  /* HEADER */
   header {
-    position: relative; /* PENTING: Tukar dari absolute ke relative */
     padding: 15px 5%;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0, 0, 0, 0.9); /* Gelap sikit supaya tulisan jelas */
+    width: 100%;
+    position: absolute; /* Header kekal absolute */
+    z-index: 1002; /* Mesti tinggi */
   }
 
-  /* 2. HAMBURGER ICON */
   .hamburger {
     display: block;
     margin-left: auto;
     font-size: 1.8rem;
     cursor: pointer;
     color: #fff;
-    z-index: 1003;
-    transition: 0.3s;
+    z-index: 1003; /* Paling tinggi supaya boleh tekan tutup */
   }
 
-  /* TEKNIK TUKAR JADI 'X' (Guna CSS Content) */
-  /* Bila hamburger ada class 'active', tukar icon jadi X (\f00d) */
-  .hamburger.active i::before {
-     content: "\f00d"; /* Kod Unicode untuk icon X (fa-times) */
-  }
-  
-  /* Pusingkan sikit icon bila tekan (Animasi X) */
-  .hamburger.active {
-    transform: rotate(90deg);
-  }
-
-  /* 3. NAVIGATION (Laci Separuh) */
+  /* MENU DRAWER (FIXED POSITION) */
+  /* Ini yang selesaikan masalah scroll tepi */
   .navigation {
-    position: absolute; /* Melekat pada Header, bukan skrin */
-    top: 100%; /* Bermula betul-betul di bawah garisan header */
-    right: 0; /* Mula dari kanan */
+    position: fixed; /* PENTING: Guna FIXED, bukan absolute */
+    top: 0;
+    right: -100%; /* Sembunyi luar skrin */
     
     width: 100%; /* Lebar penuh */
-    height: auto; /* PENTING: Tinggi ikut isi kandungan (Separuh shj) */
+    height: 100vh; /* Tinggi penuh skrin */
     
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     
-    display: none; /* Sembunyi terus supaya tak kacau scroll */
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Menu duduk tengah-tengah */
+    gap: 10px;
     padding: 20px 0;
     
-    border-top: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    z-index: 1001;
-    
-    /* Animasi turun dari atas */
-    transform-origin: top;
-    animation: slideDown 0.3s ease forwards;
+    transition: right 0.4s ease; /* Animasi smooth */
+    z-index: 1001; /* Bawah hamburger, atas content */
   }
 
-  /* Keyframe untuk animasi turun */
-  @keyframes slideDown {
-      from { transform: scaleY(0); opacity: 0; }
-      to { transform: scaleY(1); opacity: 1; }
-  }
-
-  /* CLASS ACTIVE (Ditekan) */
   .navigation.active {
-    display: flex; /* Munculkan menu */
+    right: 0; /* Masuk tutup skrin */
   }
 
   /* STYLE LINK MENU */
-  .navigation a, 
+  .navigation a,
   .dropdown > a {
-    font-size: 1.1em;
-    padding: 15px 0;
-    width: 90%; /* Tak perlu lebar sangat */
+    font-size: 1.3em;
+    padding: 15px;
+    width: 80%; /* Tak perlu lebar sangat */
     text-align: center;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     color: #fff;
     display: block;
   }
 
-  /* DROPDOWN & TEXT FIXES */
-  .dropdown { width: 100%; display: flex; flex-direction: column; align-items: center; }
-  .dropdown-content { position: relative; width: 100%; background: rgba(255, 255, 255, 0.05); display: none; }
-  .dropdown:hover .dropdown-content { display: block; }
-
-  /* PARALLAX FIX */
-  .parallax { height: 100vh; min-height: 100vh; overflow: hidden; }
-  #text { font-size: 12vw; width: 100%; text-align: center; margin: 0; }
-  .content-wrapper { width: 95%; padding: 20px; }
+  /* FIX PARALLAX & TEXT (Supaya tak lari) */
+  .parallax {
+    height: 100vh; 
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  #text {
+    font-size: 12vw;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    padding: 0;
+    margin: 0;
+  }
 }
