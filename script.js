@@ -11,15 +11,15 @@ function toggleMenu() {
 
     // 2. Tukar ikon dari 'Garis' (fa-bars) ke 'X' (fa-times)
     // Pastikan hamburgerIcon wujud sebelum tukar class
-    if (hamburgerIcon) {
-        if (nav.classList.contains('active')) {
-            hamburgerIcon.classList.remove('fa-bars');
-            hamburgerIcon.classList.add('fa-times');
-        } else {
-            hamburgerIcon.classList.remove('fa-times');
-            hamburgerIcon.classList.add('fa-bars');
-        }
+   if (hamburgerIcon) {
+    if (nav.classList.contains('active')) {
+        hamburgerIcon.classList.remove('fa-bars');
+        hamburgerIcon.classList.add('fa-xmark');
+    } else {
+        hamburgerIcon.classList.remove('fa-xmark');
+        hamburgerIcon.classList.add('fa-bars');
     }
+}
 }
 
 // ==========================================
