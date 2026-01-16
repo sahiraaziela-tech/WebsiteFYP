@@ -10,7 +10,11 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden;
+    max-width: 100%;
+    overflow-x: hidden !important; /* KUNCI UTAMA: Halang scroll tepi */
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 html {
@@ -258,63 +262,74 @@ header {
 }
 
 /* ===========================
-   MOBILE RESPONSIVE (DESIGN BARU)
+   MOBILE RESPONSIVE (FIXED VERSION)
+   Copy & Paste kod ini ganti bahagian bawah CSS anda
 =========================== */
 @media (max-width: 768px) {
 
-  /* 1. HEADER & HAMBURGER */
+  /* HEADER */
   header {
-    padding: 15px 5%; /* Jarak tepi header */
-    justify-content: space-between; /* Pisahkan Logo & Hamburger */
+    padding: 15px 5%;
+    justify-content: space-between;
     align-items: center;
-    
+    width: 100%;
+    position: absolute; /* Header kekal absolute */
+    z-index: 1002; /* Mesti tinggi */
   }
 
   .hamburger {
-    display: block; /* Tunjuk hamburger */
-    margin-left: auto; /* Tolak ke kanan sekali */
+    display: block;
+    margin-left: auto;
     font-size: 1.8rem;
     cursor: pointer;
     color: #fff;
+    z-index: 1003; /* Paling tinggi supaya boleh tekan tutup */
   }
 
-  /* 2. NAVIGATION DRAWER (Gaya Slide-in) */
+  /* MENU DRAWER (FIXED POSITION) */
+  /* Ini yang selesaikan masalah scroll tepi */
   .navigation {
-    position: absolute; /* Menu melekat pada Header */
-    top: 100%; /* Bermula betul-betul di bawah header */
-    right: -100%; /* Sembunyi di luar skrin kanan */
+    position: fixed; /* PENTING: Guna FIXED, bukan absolute */
+    top: 0;
+    right: -100%; /* Sembunyi luar skrin */
+    
     width: 100%; /* Lebar penuh */
-    background: rgba(0, 0, 0, 0.95); /* Warna hitam tembus sikit */
-    backdrop-filter: blur(10px); /* Effect kabur belakang */
+    height: 100vh; /* Tinggi penuh skrin */
+    
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
     
     display: flex;
-    flex-direction: column; /* Susun memanjang ke bawah */
+    flex-direction: column;
     align-items: center;
-    gap: 0;
+    justify-content: center; /* Menu duduk tengah-tengah */
+    gap: 10px;
     padding: 20px 0;
     
-    transition: 0.4s ease; /* Animasi lembut */
-    box-shadow: 0 10px 10px rgba(0,0,0,0.5); /* Bayang di bawah menu */
+    transition: right 0.4s ease; /* Animasi smooth */
+    z-index: 1001; /* Bawah hamburger, atas content */
   }
 
-  /* Bila hamburger ditekan, kelas .active ditambah oleh JS */
   .navigation.active {
-    right: 0; /* Menu masuk ke dalam skrin */
+    right: 0; /* Masuk tutup skrin */
   }
 
-  /* 3. LINKS & DROPDOWN STYLE */
-    .navigation a,
+  /* STYLE LINK MENU */
+  .navigation a,
   .dropdown > a {
-    font-size: 1.2em;
-    padding: 15px 20px;
-    width: 100%;
+    font-size: 1.3em;
+    padding: 15px;
+    width: 80%; /* Tak perlu lebar sangat */
     text-align: center;
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
     display: block;
   }
 
+  /* DROPDOWN FIX */
   .dropdown {
     width: 100%;
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
@@ -322,37 +337,35 @@ header {
   .dropdown-content {
     position: relative;
     width: 100%;
-    top: 0;
-    left: 0;
-    transform: none;
-    background: rgba(255,255,255,0.05);
-    box-shadow: none;
+    background: rgba(255, 255, 255, 0.05);
     display: none;
   }
-
+  
   .dropdown:hover .dropdown-content {
     display: block;
   }
 
-  /* 4. CONTENT FIX (Supaya tak lari layout) */
+  /* FIX PARALLAX & TEXT (Supaya tak lari) */
   .parallax {
-    height: 100vh; /* Background ikut tinggi skrin */
-    min-height: 500px;
+    height: 100vh; 
+    min-height: 100vh;
+    overflow: hidden;
   }
   
   #text {
-    font-size: 10vw; /* Saiz tajuk ikut skrin */
-    width: 90%;
-    margin: 0 auto;
+    font-size: 12vw;
+    width: 100%;
+    text-align: center;
     left: 0;
-    right: 0;
-    text-align: left;
+    padding: 0;
+    margin: 0;
   }
-
+  
   .content-wrapper {
     width: 95%;
     padding: 20px;
   }
+}
 }
 
 @media (max-width: 480px) {
