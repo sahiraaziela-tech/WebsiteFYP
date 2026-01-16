@@ -288,26 +288,22 @@ header {
   /* MENU DRAWER (FIXED POSITION) */
   /* Ini yang selesaikan masalah scroll tepi */
   .navigation {
-    position: fixed; /* PENTING: Guna FIXED, bukan absolute */
-    top: 0;
-    right: -100%; /* Sembunyi luar skrin */
-    
-    width: 100%; /* Lebar penuh */
-    height: 100vh; /* Tinggi penuh skrin */
-    
+    position: fixed;
+    top: 100%;
+    right: -100%;
+    width: 100%;
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
-    
-    display: flex;
+
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 0;
     padding: 20px 0;
-    
-    transition: right 0.4s ease; /* Animasi smooth */
+
+    transition: 0.4s ease;
     box-shadow: 0 10px 10px rgba(0,0,0,0.5);
-    z-index: 1001; /* Bawah hamburger, atas content */
   }
+
 
   .navigation.active {
     right: 0; /* Masuk tutup skrin */
