@@ -255,72 +255,129 @@ header {
 }
 
 /* ===========================
-/* ===========================
-   FIX MOBILE SAHAJA (Ganti bahagian bawah CSS anda dengan ini)
+   MOBILE RESPONSIVE (DESIGN BARU)
 =========================== */
 @media (max-width: 768px) {
 
-    /* 1. FIX NAVIGASI (Supaya tidak terheret ke tepi) */
-    header {
-        padding: 15px 5%;
-        justify-content: space-between; /* Pastikan logo/menu jarak */
-        width: 100%;
-    }
+  /* 1. HEADER & HAMBURGER */
+  header {
+    padding: 15px 5%; /* Jarak tepi header */
+    justify-content: space-between; /* Pisahkan Logo & Hamburger */
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8); /* Gelapkan sikit background header */
+  }
 
-    .hamburger {
-        display: block; /* Tunjuk hamburger */
-        z-index: 1002;
-    }
+  .hamburger {
+    display: block; /* Tunjuk hamburger */
+    margin-left: auto; /* Tolak ke kanan sekali */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1002;
+  }
 
-    .navigation {
-        position: fixed; /* Guna FIXED supaya dia tak tolak page ke tepi */
-        top: 0;
-        right: -100%; /* Sembunyi di luar skrin */
-        width: 100%; /* Penuhkan lebar */
-        height: 100vh; /* Penuhkan tinggi */
-        background: rgba(0, 0, 0, 0.95); /* Gelap */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: 0.4s ease;
-        z-index: 1001; /* Duduk bawah hamburger tapi atas content */
-    }
-
-    .navigation.active {
-        right: 0; /* Masuk ke dalam */
-    }
-
-    /* 2. FIX BACKGROUND & PARALLAX (Supaya ikut saiz skrin/teks) */
-    .parallax {
-        /* Tukar dari 120vh ke 100vh supaya tak terlalu panjang ke bawah */
-        height: 100vh; 
-        min-height: 100vh; 
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #myBackground {
-        /* Pastikan gambar background sentiasa cover skrin cantik */
-        height: 100%;
-        width: 100%;
-        object-fit: cover; 
-        object-position: center;
-    }
-
-    #text {
-        font-size: 12vw; /* Saiz teks ikut lebar skrin */
-        width: 90%;
-        left: 5%; /* Centerkan teks */
-        padding: 0;
-        margin: 0;
-        text-align: center; /* Teks tengah */
-    }
+  /* 2. NAVIGATION DRAWER (Gaya Slide-in) */
+  .navigation {
+    position: absolute; /* Menu melekat pada Header */
+    top: 100%; /* Bermula betul-betul di bawah header */
+    right: -100%; /* Sembunyi di luar skrin kanan */
+    width: 100%; /* Lebar penuh */
+    background: rgba(0, 0, 0, 0.95); /* Warna hitam tembus sikit */
+    backdrop-filter: blur(10px); /* Effect kabur belakang */
     
-    /* Reset style pelik yang mungkin kacau layout */
-    body section#pengenalan-etnik {
-        width: 100%;
-        overflow: hidden;
-    }
+    display: flex;
+    flex-direction: column; /* Susun memanjang ke bawah */
+    align-items: center;
+    gap: 0;
+    padding: 20px 0;
+    
+    transition: 0.4s ease; /* Animasi lembut */
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5); /* Bayang di bawah menu */
+    z-index: 1000;
+  }
+
+  /* Bila hamburger ditekan, kelas .active ditambah oleh JS */
+  .navigation.active {
+    right: 0; /* Menu masuk ke dalam skrin */
+  }
+
+  /* 3. LINKS & DROPDOWN STYLE */
+  .navigation a,
+  .dropdown > a {
+    font-size: 1.2em; /* Saiz tulisan besar sikit */
+    padding: 15px 20px; /* Ruang untuk jari tekan */
+    width: 100%; /* Penuh lebar */
+    text-align: center; /* Tulisan tengah */
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Garis pemisah halus */
+    display: block;
+    color: #fff;
+  }
+  
+  /* Buang background hover desktop */
+  .navigation a:hover,
+  .dropdown > a:hover {
+    background: rgba(255,255,255,0.1); 
+    color: #c19459;
+  }
+
+  /* Dropdown Mobile */
+  .dropdown {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dropdown-content {
+    position: relative; /* Ikut flow menu, bukan terapung */
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: none;
+    background: rgba(255,255,255,0.05); /* Warna lain sikit untuk sub-menu */
+    box-shadow: none;
+    display: none; /* Sembunyi asalnya */
+    padding: 0;
+  }
+
+  .dropdown-content li a {
+    font-size: 1em;
+    padding: 12px 0;
+    border-bottom: none;
+    color: #ddd;
+  }
+
+  /* Tunjuk dropdown bila disentuh/hover (Optional: lebih baik guna JS click) */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* 4. CONTENT FIX (Supaya tak lari layout) */
+  .parallax {
+    height: 100vh; /* Background ikut tinggi skrin */
+    min-height: 500px;
+  }
+  
+  #text {
+    font-size: 10vw; /* Saiz tajuk ikut skrin */
+    width: 90%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .content-wrapper {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+/* ===========================
+   EXTRA: SKRIN KECIL (Bawah 480px)
+=========================== */
+@media (max-width: 480px) {
+  .navigation a, .dropdown > a { font-size: 1em; padding: 12px; }
+  h1 { font-size: 1.8em !important; }
+  .subtitle { font-size: 0.85em !important; }
 }
